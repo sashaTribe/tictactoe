@@ -8,6 +8,9 @@ function Header() {
 }
 
 function UserCustomisation({onSubmit}) {
+  const playerData = () => {
+    //const firstPlayer 
+  }
   const [playerOneVal, setPlayerOneVal] = useState('');
   const [playerTwoVal, setPlayerTwoVal] = useState('');
 
@@ -31,6 +34,7 @@ function UserCustomisation({onSubmit}) {
       <h2>Enter Player Names</h2>
       <input type="text" value={playerOneVal} onChange={handleChange1}/>
       <input type="text" value={playerTwoVal} onChange={handleChange2}/>
+      <br></br>
       <button className='players-button' onclick={onSubmit}>Lets Play!</button>
     </div>
     
@@ -151,7 +155,7 @@ function Game() {
     }
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <button id="history-tab" onClick={() => jumpTo(move)}>{description}</button>
       </li>
     )
   });
@@ -161,7 +165,7 @@ function Game() {
     secondPlayer: 'there'
   });
   
-  const handleSubmit = (players) => {
+  const handlePlayers = (players) => {
     setPlayers(players);
   }
 
@@ -169,12 +173,13 @@ function Game() {
     <div className="game">
       <Header />
       <div classname="content">
-      <UserCustomisation onSubmit={() => handleSubmit}/>
-      <DisplayPlayers firstPlayer={players.firstPlayer} secondPlayer={players.secondPlayer}/>
-      <div className='game-board'>
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
-      <div className='game-info'>
+        <UserCustomisation firstPlayer={players.playerOneVal} secondPlayer={players.playerTwoVal}/>
+        <DisplayPlayers firstPlayer={players.playerOneVal} secondPlayer={players.playerTwoVal}/>
+        <div className='game-board'>
+          <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        </div>
+        <div className='game-info'>
+          <h2>History</h2>
         <ol>{moves}</ol>
       </div>
       </div>
@@ -186,3 +191,11 @@ function Game() {
 export default Game;
  
 
+/**
+ *  flex:1;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+ */
+
+  
