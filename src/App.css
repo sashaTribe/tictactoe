@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.square {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.game-Board {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  text-align: center;
+  color: blue;
+  font-size:50px;
+}
+
+body {
+  align-items: center;
+}
+
+.content{
+  display:flex;
+}
+
